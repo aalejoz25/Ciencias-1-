@@ -14,6 +14,8 @@ import java.util.Scanner;
 public class main {
 
     Scanner s = new Scanner(System.in);
+    public static int izquierda, derecha, ultimo;
+    int movimientos = 0;
 
     public main() {
         int tam = 0;
@@ -22,11 +24,9 @@ public class main {
         for (int i = 0; i < datos.length; i++) {
             datos[i] = s.nextInt();
         }
-
-        int n = datos.length;
-        int movimientos = 0;
-        //cambiar este algoritmo por burbuja bidireccional o quicksort
-        for (int i = 0; i < n; i++) {
+//ALGORITMO IMPLEMENTADO ANTERIORMENTE
+        //int n = datos.length;
+        /*  for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - 1; j++) {
                 if (datos[j] > datos[j + 1]) {
                     int aux = datos[j];
@@ -37,7 +37,38 @@ public class main {
 
             }
 
-        }
+        }*/
+//IMPLEMENTACION DE BURBUJA BIDIRECCIONAL PARA OPTIMIZAR EL TIEMPO DE EJECUCION
+        izquierda = 1;
+        derecha = datos.length;
+        ultimo = datos.length - 1;
+
+        do {
+            for (int i = datos.length - 1; i > 0; i--) {
+                //Burbuja hacia la izquierda
+                //Los valores menores van a la izquierda 
+                if (datos[i - 1] > datos[i]) {
+                    int aux = datos[i]; // variable auxiliar para poder hacer intercambio de
+                    datos[i] = datos[i - 1];  // posicion
+                    datos[i - 1] = aux;
+                    ultimo = i;
+                    movimientos++;
+                }
+            }
+            izquierda = ultimo + 1;
+            for (int j = 1; j < datos.length; j++) {
+                if (datos[j - 1] > datos[j]) {
+                    int aux = datos[j];
+                    datos[j] = datos[j - 1];
+                    datos[j - 1] = aux;
+                    ultimo = j;
+                    movimientos++;
+                }
+            }
+            derecha = ultimo - 1;
+
+        } while (derecha >= izquierda);
+
         if (movimientos % 2 == 0) {
             System.out.println("Carlos");
         } else {
