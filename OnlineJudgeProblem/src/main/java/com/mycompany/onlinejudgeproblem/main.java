@@ -25,22 +25,22 @@ public class main {
 
         int n = datos.length;
         int movimientos = 0;
-        
+        //cambiar este algoritmo por burbuja bidireccional o quicksort
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n-1; j++) {
-                if (datos[j]>datos[j+1]) {
+            for (int j = 0; j < n - 1; j++) {
+                if (datos[j] > datos[j + 1]) {
                     int aux = datos[j];
-                    datos[j] = datos[j+1];
-                    datos[j+1] = aux;
-                    movimientos++;                    
+                    datos[j] = datos[j + 1];
+                    datos[j + 1] = aux;
+                    movimientos++;
                 }
-                
+
             }
-            
+
         }
-        if (movimientos%2==0) {
+        if (movimientos % 2 == 0) {
             System.out.println("Carlos");
-        }else{
+        } else {
             System.out.println("Marcelo");
         }
     }
