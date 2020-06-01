@@ -23,20 +23,20 @@ public class main {
         while (M * N <= 100000) {
             int prevLine1 = 0;
             int prevLine2 = 0;
-            int tmp;
+            int aux;
             for (int i = 0; i < M; i++) {
                 int prevNum1 = 0;
                 int prevNum2 = 0;
                 for (int j = 0; j < N; j++) {
                     x = s.nextInt();
-                    tmp = prevNum1;
+                    aux = prevNum1;
                     prevNum1 = (int) max(prevNum1, x + prevNum2);
-                    prevNum2 = tmp;
+                    prevNum2 = aux;
 
                 }
-                tmp = prevLine1;
+                aux = prevLine1;
                 prevLine1 = (int) max(prevLine1, prevNum1 + prevLine2);
-                prevLine2 = tmp;
+                prevLine2 = aux;
             }
             System.out.println(prevLine1);
             break;
