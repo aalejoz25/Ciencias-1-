@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[]) {
-	// Online judge problem 1265
-	// Universidad Distrital
-	
+int main() {
 	string cadena ="";
 	int caso=1;
 	
 	while(cin>>cadena){
+		
 		int consultas;
-		cin >> consultas;		
+		cin >> consultas;	
+		cout<<"Case "<<caso++<<":"<<endl;
 		for (int i=0;i<consultas;i++){
-			cout<<"Case "<<caso++<<":"<<endl;
+			
 			int num1;
 			int num2;
 			cin >> num1 >> num2;
@@ -36,6 +35,5 @@ int main(int argc, char *argv[]) {
 			}					
 		}		
 	}
-	return 0;
 }
 
