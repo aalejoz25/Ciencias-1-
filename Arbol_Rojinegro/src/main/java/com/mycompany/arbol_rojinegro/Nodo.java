@@ -26,16 +26,27 @@ public class Nodo<E extends Comparable> {
     }
     
     public Nodo<E> agregarNodo(E d) {
+        
         if (d.compareTo(dato) >= 0) {
-            if (hijoDerecho == null) {
-                hijoDerecho = new Nodo<E>(d, this);
+            if (hijoDerecho.getDato() == null) {
+                hijoDerecho = new Nodo<E>(d, this);    
+                Nodo<E> nill = new Nodo(null, hijoDerecho);
+                nill.setColor("N");
+                hijoDerecho.hijoDerecho=nill;
+                hijoDerecho.hijoIzquierdo=nill;                       
                 return hijoDerecho;
             } else {
+                
                 return hijoDerecho.agregarNodo(d);
+                
             }
         } else {
-            if (hijoIzquierdo == null) {
+            if (hijoIzquierdo.getDato() == null) {
                 hijoIzquierdo = new Nodo<E>(d, this);
+                Nodo<E> nill = new Nodo(null, hijoDerecho);
+                nill.setColor("N");
+                hijoIzquierdo.hijoDerecho=nill;
+                hijoIzquierdo.hijoIzquierdo=nill; 
                 return hijoIzquierdo;
             } else {
                 return hijoIzquierdo.agregarNodo(d);
@@ -81,6 +92,18 @@ public class Nodo<E extends Comparable> {
 
     public void setColor(String color) {
         this.color = color;
+    }
+    
+    public void recorrerIRD() {
+        try {
+            hijoIzquierdo.recorrerIRD();
+        } catch (Exception e) {
+        }
+        System.out.println(dato);
+        try {
+            hijoDerecho.recorrerIRD();
+        } catch (Exception e) {
+        }
     }
     
     

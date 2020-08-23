@@ -10,13 +10,20 @@ package com.mycompany.arbol_rojinegro;
  * @author Alvaro
  */
 public class main {
+
     public static void main(String[] args) {
         Arbol<String> ab = new Arbol<String>();
-        
+
         ab.InsercionRN("C");
-        ab.InsercionRN("A");
         ab.InsercionRN("D");
         ab.InsercionRN("B");
+        ab.InsercionRN("A");
+        ab.InsercionRN("X");
+        ab.InsercionRN("Z");
+        ab.InsercionRN("J");
+        ab.InsercionRN("A");
+
+        ab.recorrerIRD();
         System.out.println(ab.getRaiz().getHijoDerecho().getColor());
     }
 }
