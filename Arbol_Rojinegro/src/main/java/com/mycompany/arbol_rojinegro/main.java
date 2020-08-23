@@ -14,16 +14,20 @@ public class main {
     public static void main(String[] args) {
         Arbol<String> ab = new Arbol<String>();
 
-        ab.InsercionRN("C");
-        ab.InsercionRN("D");
-        ab.InsercionRN("B");
-        ab.InsercionRN("A");
-        ab.InsercionRN("X");
-        ab.InsercionRN("Z");
-        ab.InsercionRN("J");
-        ab.InsercionRN("K");
+        ab.InsertarNodo("C");
+        ab.InsertarNodo("D");
+        //  ab.InsertarNodo("B");
+        //  ab.InsertarNodo("A");
+        //ab.InsertarNodo("X");
+        // ab.InsertarNodo("Z");
+        // ab.InsertarNodo("J");
+        // ab.InsertarNodo("K");
+        ab.EliminarNodo("C");
+        //  ab.EliminarNodo("Z");
+        //  ab.EliminarNodo("A");
 
-       
-        System.out.println(ab.getRaiz().getHijoIzquierdo().getHijoIzquierdo().getDato());
+        System.out.println(ab.getRaiz().getDato());
+        //arreglar error de eliminacion de arbol de unicamente 2 nodos
+
     }
 }
