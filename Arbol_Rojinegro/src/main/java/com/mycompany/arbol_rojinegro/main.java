@@ -16,18 +16,20 @@ public class main {
 
         ab.InsertarNodo("C");
         ab.InsertarNodo("D");
-        //  ab.InsertarNodo("B");
-        //  ab.InsertarNodo("A");
-        //ab.InsertarNodo("X");
-        // ab.InsertarNodo("Z");
+        ab.InsertarNodo("B");
+        ab.InsertarNodo("A");
+        ab.InsertarNodo("X");
+        ab.InsertarNodo("Z");
         // ab.InsertarNodo("J");
         // ab.InsertarNodo("K");
-        ab.EliminarNodo("C");
-        //  ab.EliminarNodo("Z");
-        //  ab.EliminarNodo("A");
 
-        System.out.println(ab.getRaiz().getDato());
+        // ab.EliminarNodo("C");
+        // ab.EliminarNodo("Z");
+        // ab.EliminarNodo("A");
+        //  System.out.println(ab.getRaiz().getDato());
+        Nodo<String> prueba = ab.buscarNodo("D", ab.getRaiz());
+        System.out.println(prueba.getPadre().getDato());
+
         //arreglar error de eliminacion de arbol de unicamente 2 nodos
-
     }
 }

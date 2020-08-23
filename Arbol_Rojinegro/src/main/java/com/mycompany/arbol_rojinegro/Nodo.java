@@ -31,7 +31,7 @@ public class Nodo<E extends Comparable> {
             if (hijoDerecho.getDato() == null) {
                 hijoDerecho = new Nodo<E>(d, this);
                 Nodo<E> nill = new Nodo(null, hijoDerecho);
-                nill.setColor("N");
+                nill.setColor("Negro");
                 hijoDerecho.hijoDerecho = nill;
                 hijoDerecho.hijoIzquierdo = nill;
                 return hijoDerecho;
@@ -44,7 +44,7 @@ public class Nodo<E extends Comparable> {
             if (hijoIzquierdo.getDato() == null) {
                 hijoIzquierdo = new Nodo<E>(d, this);
                 Nodo<E> nill = new Nodo(null, hijoDerecho);
-                nill.setColor("N");
+                nill.setColor("Negro");
                 hijoIzquierdo.hijoDerecho = nill;
                 hijoIzquierdo.hijoIzquierdo = nill;
                 return hijoIzquierdo;
