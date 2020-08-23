@@ -21,9 +21,9 @@ public class main {
         ab.InsercionRN("X");
         ab.InsercionRN("Z");
         ab.InsercionRN("J");
-        ab.InsercionRN("A");
+        ab.InsercionRN("K");
 
-        ab.recorrerIRD();
-        System.out.println(ab.getRaiz().getHijoDerecho().getColor());
+       
+        System.out.println(ab.getRaiz().getHijoIzquierdo().getHijoIzquierdo().getDato());
     }
 }

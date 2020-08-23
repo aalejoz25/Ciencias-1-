@@ -39,70 +39,63 @@ public class Arbol<E extends Comparable> {
         }
 
         //_______________________________________________________________
-        
-        
-        
-        
         //___________________________________________________
-
-
         if (nuevo != raiz) {
             nuevo.setColor("R");
         }
         try {
             if (!"N".equals(nuevo.getPadre().getColor())) {
-            Nodo<E> p = nuevo.getPadre();
+                Nodo<E> p = nuevo.getPadre();
 
-        do {
-            try {
+                do {
+                    try {
 
-                if (p == nuevo.getPadre().getPadre().getHijoIzquierdo()) {
-                    Nodo<E> u = nuevo.getPadre().getPadre().getHijoDerecho();
-                    if ("R".equals(u.getColor())) {
-                        p.setColor("N");
-                        u.setColor("N");
-                        nuevo.getPadre().getPadre().setColor("R");
-                        nuevo = nuevo.getPadre().getPadre();
-                        p = nuevo.getPadre();
-                    } else {
-                        if (nuevo == p.getHijoDerecho()) {
-                            nuevo = p;
-                            RotacionIzquierda(nuevo);
-                            p = p.getPadre();
+                        if (p == nuevo.getPadre().getPadre().getHijoIzquierdo()) {
+                            Nodo<E> u = nuevo.getPadre().getPadre().getHijoDerecho();
+                            if ("R".equals(u.getColor())) {
+                                p.setColor("N");
+                                u.setColor("N");
+                                nuevo.getPadre().getPadre().setColor("R");
+                                nuevo = nuevo.getPadre().getPadre();
+                                p = nuevo.getPadre();
+                            } else {
+                                if (nuevo == p.getHijoDerecho()) {
+                                    nuevo = p;
+                                    RotacionIzquierda(nuevo);
+                                    p = p.getPadre();
+                                }
+                                nuevo.getPadre().setColor("N");
+                                nuevo.getPadre().getPadre().setColor("R");
+                                RotacionDerecha(nuevo.getPadre().getPadre());
+                            }
+                        } else {
+
+                            Nodo<E> u = nuevo.getPadre().getPadre().getHijoIzquierdo();
+                            if ("R".equals(u.getColor())) {
+                                p.setColor("N");
+                                u.setColor("N");
+                                nuevo.getPadre().getPadre().setColor("R");
+                                nuevo = nuevo.getPadre().getPadre();
+                                p = nuevo.getPadre();
+                            } else {
+                                if (nuevo == p.getHijoIzquierdo()) {
+                                    nuevo = p;
+                                    RotacionDerecha(nuevo);
+                                    p = p.getPadre();
+                                }
+                                nuevo.getPadre().setColor("N");
+                                nuevo.getPadre().getPadre().setColor("R");
+                                RotacionIzquierda(nuevo.getPadre().getPadre());
+                            }
                         }
-                        nuevo.getPadre().setColor("N");
-                        nuevo.getPadre().getPadre().setColor("R");
-                        RotacionDerecha(nuevo.getPadre().getPadre());
+                    } catch (NullPointerException e) {
                     }
-                } else {
-                    
-                    Nodo<E> u = nuevo.getPadre().getPadre().getHijoIzquierdo();
-                    if ("R".equals(u.getColor())) {
-                        p.setColor("N");
-                        u.setColor("N");
-                        nuevo.getPadre().getPadre().setColor("R");
-                        nuevo = nuevo.getPadre().getPadre();
-                        p = nuevo.getPadre();
-                    } else {
-                        if (nuevo == p.getHijoIzquierdo()) {
-                            nuevo = p;
-                            RotacionDerecha(nuevo);
-                            p = p.getPadre();
-                        }
-                        nuevo.getPadre().setColor("N");
-                        nuevo.getPadre().getPadre().setColor("R");
-                        RotacionIzquierda(nuevo.getPadre().getPadre());
-                    }
-                }
-            } catch (NullPointerException e) {
+
+                } while (raiz != nuevo && "R".equals(p.getColor()));
             }
-
-        } while (raiz != nuevo && "R".equals(p.getColor()));
-        }
         } catch (NullPointerException e) {
         }
-        
-        
+
         raiz.setColor("N");
 
     }
@@ -166,13 +159,13 @@ public class Arbol<E extends Comparable> {
     }
 
     private Nodo<E> agregarNodo(E dato) {
-        
+
         if (raiz == null) {
             Nodo<E> nill = new Nodo(null, raiz);
             nill.setColor("N");
             raiz = new Nodo<E>(dato, null);
             raiz.setHijoDerecho(nill);
-            raiz.setHijoIzquierdo(nill);           
+            raiz.setHijoIzquierdo(nill);
             raiz.setColor("R");
             return raiz;
         } else {
@@ -185,9 +178,45 @@ public class Arbol<E extends Comparable> {
     public Nodo<E> getRaiz() {
         return raiz;
     }
-    
+
     public void recorrerIRD() {
         raiz.recorrerIRD();
+    }
+
+    public Nodo<E> buscarNodo(E d, Nodo<E> r) {
+        if (raiz == null) {
+            return null;
+        } else if (r.getDato().compareTo(d) == 0) {
+            return r;
+        } else if (r.getDato().compareTo(d) > 0) {
+            return buscarNodo(d, r.getHijoIzquierdo());
+        } else if (r.getDato().compareTo(d) < 0) {
+            return buscarNodo(d, r.getHijoDerecho());
+        }
+        return null;
+    }
+
+    public Nodo<E> buscarSucesor(Nodo<E> nodo) {
+        try {
+            Nodo<E> sucesor = new Nodo(null, null);
+
+            if (nodo.getHijoDerecho().getDato() != null) {
+                if (nodo.getHijoDerecho().getHijoIzquierdo().getDato() == null) {
+                    sucesor = nodo.getHijoDerecho();
+                } else {
+                    //buscar el menor del subarbol derecho
+                    sucesor = nodo.getHijoDerecho().buscarNodomenor();
+                }
+            } else {
+                sucesor = nodo.buscarNodomayor();
+
+            }
+            return sucesor;
+
+        } catch (NullPointerException e) {
+        }
+        return null;
+
     }
 
 }
