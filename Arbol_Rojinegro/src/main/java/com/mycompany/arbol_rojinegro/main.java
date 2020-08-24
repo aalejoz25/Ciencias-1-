@@ -15,21 +15,23 @@ public class main {
         Arbol<String> ab = new Arbol<String>();
 
         ab.InsertarNodo("C");
-        ab.InsertarNodo("D");
         ab.InsertarNodo("B");
-        ab.InsertarNodo("A");
-        ab.InsertarNodo("X");
-        ab.InsertarNodo("Z");
+        // ab.InsertarNodo("A");
+        // ab.InsertarNodo("X");
+        // ab.InsertarNodo("Z");
         // ab.InsertarNodo("J");
         // ab.InsertarNodo("K");
-
-        // ab.EliminarNodo("C");
+        ab.EliminarNodo("C");
         // ab.EliminarNodo("Z");
         // ab.EliminarNodo("A");
-        //  System.out.println(ab.getRaiz().getDato());
-        Nodo<String> prueba = ab.buscarNodo("D", ab.getRaiz());
-        System.out.println(prueba.getPadre().getDato());
+        System.out.println("Raiz: ");
+        System.out.println("Dato: " + ab.getRaiz().getDato());
+        System.out.println("Color: " + ab.getRaiz().getColor() + "\n");
+        /*____________________________________________________________*/
 
-        //arreglar error de eliminacion de arbol de unicamente 2 nodos
+        System.out.println("Nodo Encontrado: ");
+        Nodo<String> prueba = ab.buscarNodo("B", ab.getRaiz());
+        System.out.println("Color: " + prueba.getColor());
+
     }
 }

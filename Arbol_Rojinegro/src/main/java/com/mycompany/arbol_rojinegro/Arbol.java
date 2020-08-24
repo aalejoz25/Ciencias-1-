@@ -233,65 +233,69 @@ public class Arbol<E extends Comparable> {
 
     public void ajustarSupresion(Nodo<E> x) {
         Nodo<E> w = new Nodo(null, null);
-        do {
-            if (x == x.getPadre().getHijoIzquierdo()) {
-                w = x.getPadre().getHijoDerecho();
-                if ("Rojo".equals(w.getColor())) {
-                    w.setColor("Negro");
-                    x.getPadre().setColor("Rojo");
-                    RotacionIzquierda(x.getPadre());
-                    System.out.println("Se ha rotado a la izquierda en: " + x.getPadre().getDato());
+        try {
+            do {
+                if (x == x.getPadre().getHijoIzquierdo()) {
                     w = x.getPadre().getHijoDerecho();
-                }
-                if ("Negro".equals(w.getHijoDerecho().getColor()) && "Negro".equals(w.getHijoIzquierdo().getColor())) {
-                    w.setColor("Rojo");
-                    x = x.getPadre();
-                } else {
-                    if (w.getHijoDerecho().getColor() == "Negro") {
-                        w.getHijoIzquierdo().setColor("Negro");
-                        w.setColor("Rojo");
-                        RotacionDerecha(w);
-                        System.out.println("Se ha rotado a la derecha en: " + w.getDato());
+                    if ("Rojo".equals(w.getColor())) {
+                        w.setColor("Negro");
+                        x.getPadre().setColor("Rojo");
+                        RotacionIzquierda(x.getPadre());
+                        System.out.println("Se ha rotado a la izquierda en: " + x.getPadre().getDato());
                         w = x.getPadre().getHijoDerecho();
                     }
-                }
-                w.setColor(x.getPadre().getColor());
-                x.getPadre().setColor("Negro");
-                w.getHijoDerecho().setColor("Negro");
-                RotacionIzquierda(x.getPadre());
-                System.out.println("Se ha rotado a la izquierda en: " + x.getPadre().getDato());
-                x = raiz;
-            } else {
-
-                w = x.getPadre().getHijoIzquierdo();
-                if ("Rojo".equals(w.getColor())) {
-                    w.setColor("Negro");
-                    x.getPadre().setColor("Rojo");
-                    RotacionDerecha(x.getPadre());
-                    System.out.println("Se ha rotado a la derecha en: " + x.getPadre().getDato());
-                    w = x.getPadre().getHijoIzquierdo();
-                }
-                if ("Negro".equals(w.getHijoIzquierdo().getColor()) && "Negro".equals(w.getHijoDerecho().getColor())) {
-                    w.setColor("Rojo");
-                    x = x.getPadre();
-                } else {
-                    if (w.getHijoIzquierdo().getColor() == "Negro") {
-                        w.getHijoDerecho().setColor("Negro");
+                    if ("Negro".equals(w.getHijoDerecho().getColor()) && "Negro".equals(w.getHijoIzquierdo().getColor())) {
                         w.setColor("Rojo");
-                        RotacionIzquierda(w);
-                        System.out.println("Se ha rotado a la izquierda en: " + w.getDato());
+                        x = x.getPadre();
+                    } else {
+                        if (w.getHijoDerecho().getColor() == "Negro") {
+                            w.getHijoIzquierdo().setColor("Negro");
+                            w.setColor("Rojo");
+                            RotacionDerecha(w);
+                            System.out.println("Se ha rotado a la derecha en: " + w.getDato());
+                            w = x.getPadre().getHijoDerecho();
+                        }
+                    }
+                    w.setColor(x.getPadre().getColor());
+                    x.getPadre().setColor("Negro");
+                    w.getHijoDerecho().setColor("Negro");
+                    RotacionIzquierda(x.getPadre());
+                    System.out.println("Se ha rotado a la izquierda en: " + x.getPadre().getDato());
+                    x = raiz;
+                } else {
+
+                    w = x.getPadre().getHijoIzquierdo();
+                    if ("Rojo".equals(w.getColor())) {
+                        w.setColor("Negro");
+                        x.getPadre().setColor("Rojo");
+                        RotacionDerecha(x.getPadre());
+                        System.out.println("Se ha rotado a la derecha en: " + x.getPadre().getDato());
                         w = x.getPadre().getHijoIzquierdo();
                     }
-                }
-                w.setColor(x.getPadre().getColor());
-                x.getPadre().setColor("Negro");
-                w.getHijoIzquierdo().setColor("Negro");
-                RotacionDerecha(x.getPadre());
-                System.out.println("Se ha rotado a la derecha en: " + x.getPadre().getDato());
-                x = raiz;
+                    if ("Negro".equals(w.getHijoIzquierdo().getColor()) && "Negro".equals(w.getHijoDerecho().getColor())) {
+                        w.setColor("Rojo");
+                        x = x.getPadre();
+                    } else {
+                        if (w.getHijoIzquierdo().getColor() == "Negro") {
+                            w.getHijoDerecho().setColor("Negro");
+                            w.setColor("Rojo");
+                            RotacionIzquierda(w);
+                            System.out.println("Se ha rotado a la izquierda en: " + w.getDato());
+                            w = x.getPadre().getHijoIzquierdo();
+                        }
+                    }
+                    w.setColor(x.getPadre().getColor());
+                    x.getPadre().setColor("Negro");
+                    w.getHijoIzquierdo().setColor("Negro");
+                    RotacionDerecha(x.getPadre());
+                    System.out.println("Se ha rotado a la derecha en: " + x.getPadre().getDato());
+                    x = raiz;
 
-            }
-        } while (x != raiz && "Negro".equals(x.getColor()));
+                }
+            } while (x != raiz && "Negro".equals(x.getColor()));
+        } catch (NullPointerException e) {
+        }
+
         x.setColor("Negro");
     }
 
