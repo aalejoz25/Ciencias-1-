@@ -31,7 +31,17 @@ public class main {
 
         System.out.println("Nodo Encontrado: ");
         Nodo<String> prueba = ab.buscarNodo("B", ab.getRaiz());
-        System.out.println("Color: " + prueba.getColor());
+        System.out.println("Dato: "+prueba.getDato());
+        System.out.println("Color: "+prueba.getColor());
+        
+        System.out.println("Nodos nulos: ");
+        System.out.println("Hijo Izquierdo:");
+        System.out.println("Dato: " + prueba.getHijoIzquierdo().getDato());
+        System.out.println("Color: " + prueba.getHijoIzquierdo().getColor());
+        
+        System.out.println("Hijo Derecho:");
+        System.out.println("Dato: " + prueba.getHijoDerecho().getDato());
+        System.out.println("Color: " + prueba.getHijoDerecho().getColor());
 
     }
 }
