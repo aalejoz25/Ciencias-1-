@@ -16,9 +16,9 @@ public class main {
 
     public static void main(String[] args) {
         boolean programa = true;
-        Scanner s = new Scanner(System.in);
-        Arbol<Integer> ab = new Arbol<Integer>();
 
+        Scanner s = new Scanner(System.in);
+        Arbol<Integer> ab = new Arbol<>();
         while (programa) {
 
             int caso = 0;

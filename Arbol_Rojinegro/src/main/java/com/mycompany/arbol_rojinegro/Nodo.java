@@ -13,7 +13,6 @@ public class Nodo<E extends Comparable> {
 
     private E dato;
     private String color;
-
     private Nodo<E> hijoIzquierdo, hijoDerecho;
     private Nodo<E> padre;
 
