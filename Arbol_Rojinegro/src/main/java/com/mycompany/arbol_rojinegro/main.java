@@ -34,14 +34,17 @@ public class main {
                     System.out.println("\nDigite el numero que desea agregar");
                     nodo = s.nextInt();
                     ab.InsertarNodo(nodo);
-                    System.out.println("se ha agregado el nodo!!!\n");
+
+                    System.out.println("se ha agregado el nodo!!!");
+                    System.out.println("La raiz es: " + ab.getRaiz().getDato() + "\n");
                     break;
                 case 2:
                     try {
                     System.out.println("\nDigite el nodo que desea eliminar");
                     nodo = s.nextInt();
                     ab.EliminarNodo(nodo);
-                    System.out.println("se ha eliminado el nodo!!!\n");
+                    System.out.println("se ha eliminado el nodo!!!");
+                    System.out.println("La raiz es: " + ab.getRaiz().getDato() + "\n");
                     break;
 
                 } catch (Exception e) {
