@@ -105,6 +105,44 @@ public class Nodo<E extends Comparable> {
         } catch (Exception e) {
         }
     }
+    
+    public void recorrerDRI() {
+        try {
+            hijoDerecho.recorrerDRI();
+        } catch (Exception e) {
+        }
+        System.out.println(dato);
+        try {
+            hijoIzquierdo.recorrerDRI();
+        } catch (Exception e) {
+        }
+    }
+
+    public void recorrerRID() {
+        System.out.println(dato);
+        try {
+            hijoIzquierdo.recorrerRID();
+        } catch (Exception e) {
+        }
+
+        try {
+            hijoDerecho.recorrerRID();
+        } catch (Exception e) {
+        }
+    }
+
+    public void recorrerRDI() {
+        System.out.println(dato);
+        try {
+            hijoDerecho.recorrerRDI();
+        } catch (Exception e) {
+        }
+
+        try {
+            hijoIzquierdo.recorrerRDI();
+        } catch (Exception e) {
+        }
+    }
 
     public Nodo<E> buscarNodomenor() {
         if (this.hijoIzquierdo.getDato() == null) {

@@ -185,6 +185,18 @@ public class Arbol<E extends Comparable> {
         raiz.recorrerIRD();
     }
 
+    public void recorrerDRI() {
+        raiz.recorrerDRI();
+    }
+
+    public void recorrerRID() {
+        raiz.recorrerRID();
+    }
+
+    public void recorrerRDI() {
+        raiz.recorrerRDI();
+    }
+
     public Nodo<E> buscarNodo(E d, Nodo<E> r) {
         if (raiz == null) {
             return null;

@@ -7,7 +7,9 @@ package com.mycompany.arbol_rojinegro;
 
 /**
  *
- * @author Alvaro
+ * David Ricardo Lopez Amador (20161020505)
+ * Einar Nayib Moreno Bustos (20152020401)
+ * Alvaro Alejandro Zarabanda Gutierrez (20161020507)
  */
 public class main {
 
