@@ -23,7 +23,7 @@ public class main {
 
             int caso = 0;
             int nodo;
-            System.out.println("Digite 1 para agregar un nodo\nDigite 2 para eliminar un nodo\nDigite 3 para buscar un nodo\nDigite 4 para recorrido IRD el arbol\n0 para salir: ");
+            System.out.println("Digite 1 para agregar un nodo\nDigite 2 para eliminar un nodo\nDigite 3 para buscar un nodo\nDigite 4 para recorrido IRD\nDigite 5 para recorrido DRI\nDigite 6 para recorrido RID\nDigite 7 para recorrido RDI\n0 para salir: ");
             caso = s.nextInt();
 
             switch (caso) {
@@ -61,6 +61,14 @@ public class main {
                     }
 
                     System.out.println("El color del nodo es: " + encontrado.getColor() + "\n");
+
+                    try {
+                        System.out.println("Su padre es: " + encontrado.getPadre().getDato());
+                        System.out.println("Color: " + encontrado.getPadre().getColor() + "\n");
+                    } catch (NullPointerException e) {
+                        System.out.println("El nodo encontrado es la raiz\n");
+                    }
+
                     try {
                         System.out.println("Su hijo izquierdo es: " + encontrado.getHijoIzquierdo().getDato());
                         System.out.println("Color: " + encontrado.getHijoIzquierdo().getColor() + "\n");
@@ -84,7 +92,37 @@ public class main {
                     System.out.println("\n");
                     break;
                 } catch (NullPointerException e) {
-                    System.out.println("No hay arbol");
+                    System.out.println("No hay arbol\n");
+                    break;
+                }
+
+                case 5:
+                    try {
+                    ab.recorrerDRI();
+                    System.out.println("\n");
+                    break;
+                } catch (NullPointerException e) {
+                    System.out.println("No hay arbol\n");
+                    break;
+                }
+
+                case 6:
+                    try {
+                    ab.recorrerRID();
+                    System.out.println("\n");
+                    break;
+                } catch (NullPointerException e) {
+                    System.out.println("No hay arbol\n");
+                    break;
+                }
+
+                case 7:
+                    try {
+                    ab.recorrerRDI();
+                    System.out.println("\n");
+                    break;
+                } catch (NullPointerException e) {
+                    System.out.println("No hay arbol\n");
                     break;
                 }
 

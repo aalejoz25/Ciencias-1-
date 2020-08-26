@@ -98,19 +98,23 @@ public class Nodo<E extends Comparable> {
             hijoIzquierdo.recorrerIRD();
         } catch (Exception e) {
         }
-        System.out.println(dato);
+        System.out.println("_____________");
+        System.out.println("Dato: " + dato);
+        System.out.println("Color: " + color);
         try {
             hijoDerecho.recorrerIRD();
         } catch (Exception e) {
         }
     }
-    
+
     public void recorrerDRI() {
         try {
             hijoDerecho.recorrerDRI();
         } catch (Exception e) {
         }
-        System.out.println(dato);
+        System.out.println("_____________");
+        System.out.println("Dato: " + dato);
+        System.out.println("Color: " + color);
         try {
             hijoIzquierdo.recorrerDRI();
         } catch (Exception e) {
@@ -118,7 +122,9 @@ public class Nodo<E extends Comparable> {
     }
 
     public void recorrerRID() {
-        System.out.println(dato);
+        System.out.println("_____________");
+        System.out.println("Dato: " + dato);
+        System.out.println("Color: " + color);
         try {
             hijoIzquierdo.recorrerRID();
         } catch (Exception e) {
@@ -131,7 +137,9 @@ public class Nodo<E extends Comparable> {
     }
 
     public void recorrerRDI() {
-        System.out.println(dato);
+        System.out.println("_____________");
+        System.out.println("Dato: " + dato);
+        System.out.println("Color: " + color);
         try {
             hijoDerecho.recorrerRDI();
         } catch (Exception e) {
